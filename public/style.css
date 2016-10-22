@@ -3,6 +3,7 @@
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
     margin: 0;
 }
@@ -12,10 +13,21 @@ body {
     flex-direction: column;
     margin: auto;
     text-align: left;
-    max-width: 480px;
     border-left: 2px solid #C0F7B7;
     border-right: 2px solid #C0F7B7;
     height: 100vh;
+}
+
+@media (min-width: 769px) {
+    #dialog {
+        width: 480px;
+    }
+}
+
+@media (max-width: 768px) {
+    #dialog {
+        width: 100vw;
+    }
 }
 
 #dialog .messages {
@@ -44,6 +56,7 @@ body {
 
 #dialog .editor button {
     background-color: #C0F7B7;
+    padding: 0 18px;
 }
 
 #dialog .editor > * {
