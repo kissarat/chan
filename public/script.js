@@ -22,19 +22,26 @@ const ui = {
   chan: '#chan-script'
 }
 
+_.each(ui, function (selector, name) {
+  ui[name] = document.querySelector(selector)
+})
+
+function send() {
+  socket.emit('message', {room, text: ui.textarea.value})
+}
+
 const buttons = {
+  send,
   createChat: function () {
     location.pathname = '/chan/' + uid()
   }
 }
 
-_.each(ui, function (selector, name) {
-  ui[name] = document.querySelector(selector)
-})
-
-_.each(buttons, function (fn, name) {
-  document.getElementById(name).addEventListener('click', fn)
-})
+function setupButtons() {
+  _.each(buttons, function (fn, name) {
+    document.getElementById(name).addEventListener('click', fn)
+  })
+}
 
 let socket
 let room
@@ -42,5 +49,9 @@ if (chan) {
   room = chan[1]
   document.body.classList.add('chat')
   socket = socketIO('/')
+  ui.chan.addEventListener('load', setupButtons)
   ui.chan.setAttribute('src', '/chan.js')
+}
+else {
+  setupButtons()
 }

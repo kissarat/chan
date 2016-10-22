@@ -35,7 +35,7 @@ socket.on('message', function (o) {
 
 ui.textarea.addEventListener('keydown', function (e) {
   if ('Enter' === e.key) {
-    socket.emit('message', {room, text: e.target.value})
+    send()
     e.preventDefault()
   }
 })
