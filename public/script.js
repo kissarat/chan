@@ -48,7 +48,7 @@ let room
 if (chan) {
   room = chan[1]
   document.body.classList.add('chat')
-  socket = socketIO('/')
+  socket = (window.io || window.socketIO)('/')
   ui.chan.addEventListener('load', setupButtons)
   ui.chan.setAttribute('src', '/chan.js')
 }
