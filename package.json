@@ -1,0 +1,19 @@
+{
+  "name": "chan",
+  "version": "0.1.0",
+  "description": "Chat",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "Taras Labiak <kissarat@gmail.com>",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "express": "^4.14.0",
+    "socket.io": "^1.5.0",
+    "underscore": "^1.8.3"
+  }
+}
